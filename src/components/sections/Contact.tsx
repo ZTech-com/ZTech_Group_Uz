@@ -1,5 +1,8 @@
+"use client";
+
 import { Send } from "lucide-react";
 import { TELEGRAM } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/sections/ContactForm";
@@ -9,11 +12,13 @@ function ContactCard({
   username,
   url,
   role,
+  messageLabel,
 }: {
   name: string;
   username: string;
   url: string;
   role: string;
+  messageLabel: string;
 }) {
   return (
     <a
@@ -34,7 +39,7 @@ function ContactCard({
         </div>
       </div>
       <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-medium text-[var(--text-primary)] transition-colors duration-300 group-hover:border-[var(--accent-bright)]/50 group-hover:bg-[var(--accent-soft)]">
-        Message
+        {messageLabel}
         <Send size={12} />
       </span>
     </a>
@@ -42,6 +47,8 @@ function ContactCard({
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="relative py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -50,9 +57,9 @@ export default function Contact() {
 
       <div className="container-page">
         <SectionHeading
-          eyebrow="Contact"
-          title="Have an Idea? Let's Build It."
-          description="Tell us what you need. We'll help turn your idea into a real digital product."
+          eyebrow={t.contact.eyebrow}
+          title={t.contact.title}
+          description={t.contact.description}
           align="center"
         />
 
@@ -62,7 +69,8 @@ export default function Contact() {
               name={TELEGRAM.primary.name}
               username={TELEGRAM.primary.username}
               url={TELEGRAM.primary.url}
-              role="Founder"
+              role={t.contact.cards.founderRole}
+              messageLabel={t.contact.cards.message}
             />
           </Reveal>
           <Reveal delay={0.1}>
@@ -70,7 +78,8 @@ export default function Contact() {
               name={TELEGRAM.group.name}
               username={TELEGRAM.group.username}
               url={TELEGRAM.group.url}
-              role="Studio"
+              role={t.contact.cards.studioRole}
+              messageLabel={t.contact.cards.message}
             />
           </Reveal>
         </div>

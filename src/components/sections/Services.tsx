@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Globe,
   Bot,
@@ -9,11 +11,12 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import { SERVICES } from "@/lib/constants";
+import { SERVICE_IDS, type ServiceId } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 
-const ICONS: Record<string, LucideIcon> = {
+const ICONS: Record<ServiceId, LucideIcon> = {
   web: Globe,
   telegram: Bot,
   crm: Users,
@@ -25,20 +28,23 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 export default function Services() {
+  const { t } = useLanguage();
+
   return (
     <section id="services" className="relative py-28 sm:py-36">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Services"
-          title="Everything You Need to Build Your Digital Business."
-          description="From a single landing page to a full business platform — one team, one standard of quality."
+          eyebrow={t.services.eyebrow}
+          title={t.services.title}
+          description={t.services.description}
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((service, i) => {
-            const Icon = ICONS[service.id];
+          {SERVICE_IDS.map((id, i) => {
+            const Icon = ICONS[id];
+            const service = t.services.items[id];
             return (
-              <Reveal key={service.id} delay={(i % 4) * 0.06}>
+              <Reveal key={id} delay={(i % 4) * 0.06}>
                 <div className="glow-border card-surface group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-white/[0.03] text-[var(--text-primary)] transition-colors duration-300 group-hover:border-[var(--accent-bright)]/40 group-hover:text-[var(--accent-bright)]">
                     <Icon size={20} strokeWidth={1.6} />

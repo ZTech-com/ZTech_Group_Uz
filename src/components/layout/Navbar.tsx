@@ -5,9 +5,12 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Button from "@/components/ui/Button";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -57,27 +60,31 @@ export default function Navbar() {
                   href={link.href}
                   className="rounded-full px-4 py-2 text-sm text-[var(--text-secondary)] transition-colors duration-200 hover:text-[var(--text-primary)]"
                 >
-                  {link.label}
+                  {t.nav[link.key]}
                 </Link>
               </li>
             ))}
           </ul>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher />
             <Button href="#contact" variant="secondary" className="!px-5 !py-2 text-sm">
-              Start a Project
+              {t.nav.startProject}
             </Button>
           </div>
 
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] md:hidden"
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)]"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -103,7 +110,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="block rounded-xl px-4 py-3 text-base text-[var(--text-secondary)] transition-colors hover:bg-white/[0.04] hover:text-[var(--text-primary)]"
                   >
-                    {link.label}
+                    {t.nav[link.key]}
                   </Link>
                 </motion.li>
               ))}
@@ -113,7 +120,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
             >
               <Button href="#contact" variant="primary" className="w-full">
-                Start a Project
+                {t.nav.startProject}
               </Button>
             </div>
           </motion.div>

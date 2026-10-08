@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Button from "@/components/ui/Button";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 function CodeCard() {
   return (
@@ -99,6 +100,7 @@ function DashboardCard() {
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -162,13 +164,13 @@ export default function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-white/[0.03] px-4 py-1.5 text-xs font-medium text-[var(--text-secondary)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            ZTech Group · Digital Products &amp; Software
+            {t.hero.badge}
           </motion.span>
 
           <h1 className="text-balance max-w-xl text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-[var(--text-primary)] sm:text-6xl md:text-[3.75rem]">
-            We Build{" "}
-            <span className="gradient-text">Digital Products</span> That Move
-            Businesses Forward.
+            {t.hero.titlePrefix}
+            <span className="gradient-text">{t.hero.titleHighlight}</span>
+            {t.hero.titleSuffix}
           </h1>
 
           <motion.p
@@ -177,8 +179,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="mt-6 max-w-lg text-balance text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg"
           >
-            Websites, platforms, Telegram bots, CRM systems and custom
-            software — designed, developed and delivered by ZTech Group.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -188,10 +189,10 @@ export default function Hero() {
             className="mt-9 flex flex-wrap items-center gap-4"
           >
             <Button href="#contact" variant="primary">
-              Start a Project
+              {t.hero.ctaPrimary}
             </Button>
             <Button href="#projects" variant="secondary" icon={false}>
-              Explore Our Work
+              {t.hero.ctaSecondary}
             </Button>
           </motion.div>
         </motion.div>

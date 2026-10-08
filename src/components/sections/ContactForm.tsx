@@ -2,8 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Send } from "lucide-react";
-import { SERVICE_OPTIONS } from "@/lib/constants";
+import { CheckCircle2, ChevronDown, Send } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { buildProjectRequestMessage, buildTelegramDeepLink } from "@/lib/telegram";
 
 type FormState = {
@@ -24,38 +24,37 @@ const initialState: FormState = {
   project: "",
 };
 
-function validate(state: FormState): Errors {
-  const errors: Errors = {};
-  if (!state.name.trim() || state.name.trim().length < 2) {
-    errors.name = "Please enter your name.";
-  }
-  if (!state.telegram.trim()) {
-    errors.telegram = "Please enter your Telegram username.";
-  } else if (!/^@?[a-zA-Z0-9_]{4,32}$/.test(state.telegram.trim())) {
-    errors.telegram = "Enter a valid Telegram username (e.g. @yourname).";
-  }
-  if (!state.phone.trim()) {
-    errors.phone = "Please enter your phone number.";
-  } else if (!/^[+\d][\d\s().-]{6,20}$/.test(state.phone.trim())) {
-    errors.phone = "Enter a valid phone number.";
-  }
-  if (!state.service) {
-    errors.service = "Please select a service.";
-  }
-  if (!state.project.trim() || state.project.trim().length < 10) {
-    errors.project = "Please describe your project (10+ characters).";
-  }
-  return errors;
-}
-
 const inputClasses =
   "w-full rounded-xl border border-[var(--border-subtle)] bg-white/[0.03] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] transition-colors duration-200 focus:border-[var(--accent-bright)]/50 focus:bg-white/[0.05] focus:outline-none";
 
 export default function ContactForm() {
+  const { t } = useLanguage();
+  const errorMessages = t.contact.form.errors;
+
   const [state, setState] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
   const [generatedMessage, setGeneratedMessage] = useState("");
+
+  function validate(values: FormState): Errors {
+    const nextErrors: Errors = {};
+    if (!values.name.trim() || values.name.trim().length < 2) {
+      nextErrors.name = errorMessages.name;
+    }
+    if (!values.telegram.trim() || !/^@?[a-zA-Z0-9_]{4,32}$/.test(values.telegram.trim())) {
+      nextErrors.telegram = errorMessages.telegram;
+    }
+    if (!values.phone.trim() || !/^[+\d][\d\s().-]{6,20}$/.test(values.phone.trim())) {
+      nextErrors.phone = errorMessages.phone;
+    }
+    if (!values.service) {
+      nextErrors.service = errorMessages.service;
+    }
+    if (!values.project.trim() || values.project.trim().length < 10) {
+      nextErrors.project = errorMessages.project;
+    }
+    return nextErrors;
+  }
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setState((s) => ({ ...s, [key]: value }));
@@ -68,13 +67,16 @@ export default function ContactForm() {
     setErrors(validation);
     if (Object.keys(validation).length > 0) return;
 
-    const message = buildProjectRequestMessage({
-      name: state.name.trim(),
-      telegram: state.telegram.trim(),
-      phone: state.phone.trim(),
-      service: state.service,
-      project: state.project.trim(),
-    });
+    const message = buildProjectRequestMessage(
+      {
+        name: state.name.trim(),
+        telegram: state.telegram.trim(),
+        phone: state.phone.trim(),
+        service: state.service,
+        project: state.project.trim(),
+      },
+      t.contact.form.messageLabels,
+    );
     setGeneratedMessage(message);
     setSubmitted(true);
   }
@@ -98,11 +100,10 @@ export default function ContactForm() {
           <CheckCircle2 size={28} />
         </span>
         <h3 className="mt-5 text-xl font-semibold text-[var(--text-primary)]">
-          Your request is ready.
+          {t.contact.form.success.title}
         </h3>
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-[var(--text-secondary)]">
-          We&apos;ve prepared your project request. Continue in Telegram to
-          send it directly to ZTech Group.
+          {t.contact.form.success.subtitle}
         </p>
 
         <pre className="mt-6 w-full overflow-x-auto rounded-xl border border-[var(--border-subtle)] bg-black/30 p-4 text-left font-mono text-xs leading-relaxed text-[var(--text-secondary)]">
@@ -116,7 +117,7 @@ export default function ContactForm() {
             rel="noopener noreferrer"
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--text-primary)] px-6 py-3 text-sm font-medium text-[#07080a] transition-transform duration-300 hover:scale-[1.02] active:scale-[0.97]"
           >
-            Continue in Telegram
+            {t.contact.form.success.continueTelegram}
             <Send size={15} />
           </a>
           <button
@@ -124,7 +125,7 @@ export default function ContactForm() {
             onClick={handleReset}
             className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] px-6 py-3 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
           >
-            Send another request
+            {t.contact.form.success.sendAnother}
           </button>
         </div>
       </motion.div>
@@ -136,14 +137,14 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
-            Name
+            {t.contact.form.name}
           </label>
           <input
             id="name"
             type="text"
             value={state.name}
             onChange={(e) => update("name", e.target.value)}
-            placeholder="Your full name"
+            placeholder={t.contact.form.namePlaceholder}
             className={inputClasses}
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
@@ -155,14 +156,14 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="telegram" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
-            Telegram username
+            {t.contact.form.telegram}
           </label>
           <input
             id="telegram"
             type="text"
             value={state.telegram}
             onChange={(e) => update("telegram", e.target.value)}
-            placeholder="@yourusername"
+            placeholder={t.contact.form.telegramPlaceholder}
             className={inputClasses}
             aria-invalid={!!errors.telegram}
             aria-describedby={errors.telegram ? "telegram-error" : undefined}
@@ -174,14 +175,14 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
-            Phone number
+            {t.contact.form.phone}
           </label>
           <input
             id="phone"
             type="tel"
             value={state.phone}
             onChange={(e) => update("phone", e.target.value)}
-            placeholder="+998 90 123 45 67"
+            placeholder={t.contact.form.phonePlaceholder}
             className={inputClasses}
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? "phone-error" : undefined}
@@ -193,25 +194,31 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
-            Service
+            {t.contact.form.service}
           </label>
-          <select
-            id="service"
-            value={state.service}
-            onChange={(e) => update("service", e.target.value)}
-            className={`${inputClasses} appearance-none`}
-            aria-invalid={!!errors.service}
-            aria-describedby={errors.service ? "service-error" : undefined}
-          >
-            <option value="" disabled>
-              Select a service
-            </option>
-            {SERVICE_OPTIONS.map((opt) => (
-              <option key={opt} value={opt} className="bg-[#0c0d10]">
-                {opt}
+          <div className="relative">
+            <select
+              id="service"
+              value={state.service}
+              onChange={(e) => update("service", e.target.value)}
+              className={`${inputClasses} appearance-none pr-10`}
+              aria-invalid={!!errors.service}
+              aria-describedby={errors.service ? "service-error" : undefined}
+            >
+              <option value="" disabled>
+                {t.contact.form.selectService}
               </option>
-            ))}
-          </select>
+              {t.contact.form.serviceOptions.map((opt) => (
+                <option key={opt} value={opt} className="bg-[#0c0d10]">
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]"
+            />
+          </div>
           <AnimatePresence>
             {errors.service && <FieldError id="service-error">{errors.service}</FieldError>}
           </AnimatePresence>
@@ -219,13 +226,13 @@ export default function ContactForm() {
 
         <div className="sm:col-span-2">
           <label htmlFor="project" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
-            Project description
+            {t.contact.form.project}
           </label>
           <textarea
             id="project"
             value={state.project}
             onChange={(e) => update("project", e.target.value)}
-            placeholder="Tell us what you want to build..."
+            placeholder={t.contact.form.projectPlaceholder}
             rows={4}
             className={`${inputClasses} resize-none`}
             aria-invalid={!!errors.project}
@@ -241,7 +248,7 @@ export default function ContactForm() {
         type="submit"
         className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--text-primary)] px-6 py-3.5 text-sm font-medium text-[#07080a] transition-all duration-300 hover:bg-white active:scale-[0.98] sm:w-auto"
       >
-        Send Project Request
+        {t.contact.form.submit}
         <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">
           →
         </span>

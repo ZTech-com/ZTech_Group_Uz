@@ -8,15 +8,27 @@ export type ProjectRequest = {
   project: string;
 };
 
-export function buildProjectRequestMessage(data: ProjectRequest): string {
+type MessageLabels = {
+  header: string;
+  name: string;
+  telegram: string;
+  phone: string;
+  service: string;
+  project: string;
+};
+
+export function buildProjectRequestMessage(
+  data: ProjectRequest,
+  labels: MessageLabels,
+): string {
   return [
-    "ZTech Group Project Request",
+    labels.header,
     "",
-    `Name: ${data.name}`,
-    `Telegram: ${data.telegram}`,
-    `Phone: ${data.phone}`,
-    `Service: ${data.service}`,
-    `Project: ${data.project}`,
+    `${labels.name}: ${data.name}`,
+    `${labels.telegram}: ${data.telegram}`,
+    `${labels.phone}: ${data.phone}`,
+    `${labels.service}: ${data.service}`,
+    `${labels.project}: ${data.project}`,
   ].join("\n");
 }
 

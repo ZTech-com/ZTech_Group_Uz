@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE } from "@/lib/constants";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,13 +16,16 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const SITE_DESCRIPTION =
+  "ZTech Group builds modern websites, Telegram bots, CRM systems, business platforms and custom software for modern businesses.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: "ZTech Group — Digital Products, Websites & Software",
     template: "%s · ZTech Group",
   },
-  description: SITE.description,
+  description: SITE_DESCRIPTION,
   keywords: [
     "ZTech Group",
     "web development",
@@ -40,13 +44,13 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     title: "ZTech Group — Digital Products, Websites & Software",
-    description: SITE.description,
+    description: SITE_DESCRIPTION,
     siteName: "ZTech Group",
   },
   twitter: {
     card: "summary_large_image",
     title: "ZTech Group — Digital Products, Websites & Software",
-    description: SITE.description,
+    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,
@@ -68,7 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text-primary)]">
         <div className="bg-grain" aria-hidden />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

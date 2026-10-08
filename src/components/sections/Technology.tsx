@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { TECHNOLOGIES } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 
@@ -75,15 +76,16 @@ function OrbitRing({
 }
 
 export default function Technology() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<string | null>(null);
 
   return (
     <section className="relative overflow-hidden py-28 sm:py-36">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Technology"
-          title="A Modern, Reliable Technology Ecosystem."
-          description="We choose proven, modern tools — so what we build stays fast, secure and easy to maintain."
+          eyebrow={t.technology.eyebrow}
+          title={t.technology.title}
+          description={t.technology.description}
           align="center"
         />
 

@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { NAV_LINKS, TELEGRAM } from "@/lib/constants";
-
-const YEAR = 2026;
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative border-t border-[var(--border-subtle)] py-14">
       <div className="container-page">
@@ -19,13 +22,13 @@ export default function Footer() {
               ZTech Group
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--text-secondary)]">
-              Digital products. Software. Automation.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-[var(--text-tertiary)]">
-              Navigate
+              {t.footer.navigate}
             </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               {NAV_LINKS.map((link) => (
@@ -34,7 +37,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
                   >
-                    {link.label}
+                    {t.nav[link.key]}
                   </Link>
                 </li>
               ))}
@@ -43,7 +46,7 @@ export default function Footer() {
 
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-[var(--text-tertiary)]">
-              Telegram
+              {t.footer.telegramLabel}
             </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               <li>
@@ -71,10 +74,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[var(--border-subtle)] pt-6 sm:flex-row">
-          <p className="text-xs text-[var(--text-tertiary)]">
-            © {YEAR} ZTech Group. All rights reserved.
-          </p>
-          <p className="text-xs text-[var(--text-tertiary)]">Built with precision.</p>
+          <p className="text-xs text-[var(--text-tertiary)]">{t.footer.rights}</p>
+          <p className="text-xs text-[var(--text-tertiary)]">{t.footer.precision}</p>
         </div>
       </div>
     </footer>
