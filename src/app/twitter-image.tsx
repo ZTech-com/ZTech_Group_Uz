@@ -1,0 +1,56 @@
+import { ImageResponse } from "next/og";
+
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default function OpengraphImage() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "80px",
+          background:
+            "radial-gradient(ellipse 80% 80% at 50% -10%, rgba(91,124,255,0.35), transparent), #07080a",
+          color: "#f4f5f7",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: 12,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, #7c9bff, #35d0e0)",
+            }}
+          >
+            <div style={{ width: 14, height: 14, background: "#07080a", borderRadius: 3 }} />
+          </div>
+          <span style={{ fontSize: 28, fontWeight: 600 }}>ZTech Group</span>
+        </div>
+
+        <div style={{ display: "flex", marginTop: 48, maxWidth: 920 }}>
+          <span style={{ fontSize: 60, fontWeight: 600, lineHeight: 1.15, letterSpacing: -1.5 }}>
+            Digital Products, Websites &amp; Software
+          </span>
+        </div>
+
+        <div style={{ display: "flex", marginTop: 28, maxWidth: 760 }}>
+          <span style={{ fontSize: 26, color: "#a1a5ad", lineHeight: 1.5 }}>
+            Modern websites, Telegram bots, CRM systems and custom software —
+            built by ZTech Group.
+          </span>
+        </div>
+      </div>
+    ),
+    { ...size },
+  );
+}
