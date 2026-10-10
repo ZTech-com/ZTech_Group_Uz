@@ -19,6 +19,49 @@ const uz: Dictionary = {
       "Veb-saytlar, platformalar, Telegram botlar, CRM tizimlari va maxsus dasturiy ta'minot — barchasini ZTech Group ishlab chiqadi va yetkazib beradi.",
     ctaPrimary: "Loyihani boshlash",
     ctaSecondary: "Ishlarimizni ko'rish",
+    lab: {
+      tabsLabel: "Mahsulot ko'rinishini almashtirish",
+      tabs: {
+        website: "Veb-sayt",
+        ecommerce: "E-commerce",
+        crm: "CRM",
+        bot: "Telegram Bot",
+      },
+      url: {
+        website: "ztech-business.vercel.app",
+        ecommerce: "shop.noutbuk-olami.uz",
+        crm: "crm.ztech.uz",
+      },
+      website: {
+        eyebrow: "ZTech Group",
+        headline: "Ishonch bilan o'sing.",
+        body: "Ishonch uyg'otish uchun yaratilgan premium biznes veb-sayti.",
+        cta: "Boshlash",
+        stat: "+128% so'rovlar",
+      },
+      ecommerce: {
+        store: "Noutbuk Olami",
+        product1: "MacBook Air 13″",
+        product2: "ASUS ROG Strix",
+        price1: "$999",
+        price2: "$1,450",
+        add: "Savatga",
+      },
+      crm: {
+        customers: "Mijozlar",
+        customersValue: "2 447",
+        growth: "O'sish",
+        growthValue: "+26%",
+        activity: "Haftalik faollik",
+      },
+      bot: {
+        name: "ZTech Yordamchi",
+        status: "onlayn",
+        botMessage: "Salom! Loyihangiz haqida gapiring — jamoani ulaymiz.",
+        userMessage: "Restoranim uchun Telegram bot kerak.",
+        placeholder: "Xabar yozing",
+      },
+    },
   },
   services: {
     eyebrow: "Xizmatlar",
@@ -99,27 +142,46 @@ const uz: Dictionary = {
     eyebrow: "Loyihalar",
     title: "Haqiqiy Bizneslar Uchun Yaratilgan.",
     description:
-      "ZTech Group tomonidan ishlab chiqilgan va yetkazib berilgan mahsulotlar tanlovi. Konsept loyihalar aniq belgilab qo'yilgan.",
+      "ZTech Group haqiqiy mijozlar uchun loyihalashtirgan, qurgan va yetkazib bergan mahsulotlar tanlovi.",
     viewProject: "Loyihani ko'rish",
     statusLive: "Faol",
     statusConcept: "Konsept / Demo",
+    watchExplainer: "Qanday ishlashini ko'rish",
     enquiryMessage: (name: string) =>
       `Salom ZTech Group, "${name}" loyihasi haqida ko'proq ma'lumot olmoqchiman.`,
     items: {
       "noutbuk-olami": {
-        category: "Elektron tijorat",
+        category: "Elektron Tijorat Platformasi",
         description:
-          "Katalogni ko'rib chiqish va mahsulotlarni solishtirish imkoniyatiga ega zamonaviy noutbuk savdosi platformasi.",
+          "Katalogni ko'rib chiqish, filtrlash va mahsulotlarni solishtirish imkoniyatiga ega noutbuk marketpleysi.",
       },
-      freebuff: {
-        category: "Restoran Platformasi",
+      "emirhan-restaurant": {
+        category: "Restoran Landing Sahifasi",
         description:
-          "Tezroq xizmat ko'rsatish uchun restoranlarda oldindan buyurtma berish va boshqaruv platformasi.",
+          "Yangi mehmonlarga menyu, muhit va manzilni taqdim etuvchi premium restoran veb-sayti.",
       },
-      "ztech-business": {
-        category: "Veb-dasturlash",
+      "bunyod-portfolio": {
+        category: "Portfolio Sayti",
         description:
-          "Ishonch uyg'otish va mijozlar jalb qilish uchun yaratilgan premium biznes veb-sayti.",
+          "Case-study va mijozlar ishlarini puxta animatsiya bilan taqdim etuvchi shaxsiy portfolio sayti.",
+      },
+      "restaurant-crm": {
+        category: "Restoran Boshqaruv Tizimi",
+        description:
+          "Restoran faoliyatini boshqarish uchun ichki tizim — buyurtmalar, xodimlar va kundalik ish jarayoni bitta joyda.",
+        explainerTitle: "Restaurant CRM qanday ishlaydi",
+      },
+      "record-nazorat": {
+        category: "Telegram Bot va Ta'lim Platformasi",
+        description:
+          "Ta'lim markazi uchun yaratilgan Telegram platformasi — 2 mingdan oshiq, 3 mingga yaqin o'quvchini boshqarishga yordam beradi: guruhlar, davomat va natijalarni kuzatadi, o'quvchilarni rag'batlantiruvchi geymifikatsiyalangan reyting bilan.",
+        galleryAlt: [
+          "Telegram ichidagi Record Nazorat bot profili ekrani",
+          "O'quvchi, o'qituvchi va guruhlar sonini ko'rsatuvchi admin paneli",
+          "Har bir o'qituvchi bo'yicha kunlik davomat kalendari",
+          "Faol guruhlar ro'yxati bilan guruhlarni boshqarish ekrani",
+          "To'plangan ballar bo'yicha o'quvchilar reytingi",
+        ],
       },
     },
   },

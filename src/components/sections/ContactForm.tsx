@@ -25,7 +25,7 @@ const initialState: FormState = {
 };
 
 const inputClasses =
-  "w-full rounded-xl border border-[var(--border-subtle)] bg-white/[0.03] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] transition-colors duration-200 focus:border-[var(--accent-bright)]/50 focus:bg-white/[0.05] focus:outline-none";
+  "w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] transition-colors duration-200 focus:border-[var(--accent)] focus:bg-[var(--bg)] focus:outline-none";
 
 export default function ContactForm() {
   const { t } = useLanguage();
@@ -106,7 +106,7 @@ export default function ContactForm() {
           {t.contact.form.success.subtitle}
         </p>
 
-        <pre className="mt-6 w-full overflow-x-auto rounded-xl border border-[var(--border-subtle)] bg-black/30 p-4 text-left font-mono text-xs leading-relaxed text-[var(--text-secondary)]">
+        <pre className="mt-6 w-full overflow-x-auto rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-4 text-left font-mono text-xs leading-relaxed text-[var(--text-secondary)]">
           {generatedMessage}
         </pre>
 
@@ -115,7 +115,7 @@ export default function ContactForm() {
             href={buildTelegramDeepLink("ztechuz001", generatedMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--text-primary)] px-6 py-3 text-sm font-medium text-[#07080a] transition-transform duration-300 hover:scale-[1.02] active:scale-[0.97]"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.02] active:scale-[0.97]"
           >
             {t.contact.form.success.continueTelegram}
             <Send size={15} />
@@ -209,7 +209,7 @@ export default function ContactForm() {
                 {t.contact.form.selectService}
               </option>
               {t.contact.form.serviceOptions.map((opt) => (
-                <option key={opt} value={opt} className="bg-[#0c0d10]">
+                <option key={opt} value={opt}>
                   {opt}
                 </option>
               ))}
@@ -246,7 +246,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--text-primary)] px-6 py-3.5 text-sm font-medium text-[#07080a] transition-all duration-300 hover:bg-white active:scale-[0.98] sm:w-auto"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[var(--accent-deep)] active:scale-[0.98] sm:w-auto"
       >
         {t.contact.form.submit}
         <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">

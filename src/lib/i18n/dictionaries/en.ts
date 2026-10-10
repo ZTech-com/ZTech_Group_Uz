@@ -1,3 +1,47 @@
+import type { ProjectId } from "@/lib/constants";
+
+export type ProjectCopy = {
+  category: string;
+  description: string;
+  explainerTitle?: string;
+  galleryAlt?: string[];
+};
+
+const PROJECT_ITEMS: Record<ProjectId, ProjectCopy> = {
+  "noutbuk-olami": {
+    category: "E-commerce Platform",
+    description: "A laptop marketplace with catalog browsing, filtering and product comparison.",
+  },
+  "emirhan-restaurant": {
+    category: "Restaurant Landing Page",
+    description:
+      "A premium restaurant website presenting the menu, atmosphere and location to new guests.",
+  },
+  "bunyod-portfolio": {
+    category: "Portfolio Website",
+    description:
+      "A personal portfolio site presenting case studies and client work with considered motion.",
+  },
+  "restaurant-crm": {
+    category: "Restaurant Management System",
+    description:
+      "An internal system for running restaurant operations — orders, staff and the day-to-day workflow in one place.",
+    explainerTitle: "How the Restaurant CRM works",
+  },
+  "record-nazorat": {
+    category: "Telegram Bot & Learning Platform",
+    description:
+      "A Telegram-based management platform helping an education center run more than 2,000 students — approaching 3,000 — tracking groups, attendance and progress, with a gamified leaderboard that keeps learners motivated.",
+    galleryAlt: [
+      "Record Nazorat bot profile screen inside Telegram",
+      "Admin dashboard with student, teacher and group totals",
+      "Attendance calendar showing daily check-ins per teacher",
+      "Group management screen listing active classes",
+      "Student leaderboard ranked by points earned",
+    ],
+  },
+};
+
 const en = {
   nav: {
     home: "Home",
@@ -17,6 +61,49 @@ const en = {
       "Websites, platforms, Telegram bots, CRM systems and custom software — designed, developed and delivered by ZTech Group.",
     ctaPrimary: "Start a Project",
     ctaSecondary: "Explore Our Work",
+    lab: {
+      tabsLabel: "Switch product preview",
+      tabs: {
+        website: "Website",
+        ecommerce: "E-commerce",
+        crm: "CRM",
+        bot: "Telegram Bot",
+      },
+      url: {
+        website: "ztech-business.vercel.app",
+        ecommerce: "shop.noutbuk-olami.uz",
+        crm: "crm.ztech.uz",
+      },
+      website: {
+        eyebrow: "ZTech Group",
+        headline: "Grow with confidence.",
+        body: "A premium business website built to earn trust.",
+        cta: "Get Started",
+        stat: "+128% inquiries",
+      },
+      ecommerce: {
+        store: "Noutbuk Olami",
+        product1: "MacBook Air 13″",
+        product2: "ASUS ROG Strix",
+        price1: "$999",
+        price2: "$1,450",
+        add: "Add",
+      },
+      crm: {
+        customers: "Customers",
+        customersValue: "2,447",
+        growth: "Growth",
+        growthValue: "+26%",
+        activity: "Weekly activity",
+      },
+      bot: {
+        name: "ZTech Assistant",
+        status: "online",
+        botMessage: "Hi! Tell me about your project and I'll get the team looped in.",
+        userMessage: "I need a Telegram bot for my restaurant.",
+        placeholder: "Write a message",
+      },
+    },
   },
   services: {
     eyebrow: "Services",
@@ -97,29 +184,14 @@ const en = {
     eyebrow: "Projects",
     title: "Built for Real Businesses.",
     description:
-      "A selection of products ZTech Group has designed and delivered. Concept projects are clearly labeled.",
+      "A selection of products ZTech Group has designed, built and delivered for real clients.",
     viewProject: "View Project",
     statusLive: "Live",
     statusConcept: "Concept / Demo",
+    watchExplainer: "Watch How It Works",
     enquiryMessage: (name: string) =>
       `Hi ZTech Group, I'd like to learn more about the "${name}" project.`,
-    items: {
-      "noutbuk-olami": {
-        category: "E-Commerce",
-        description:
-          "Modern laptop sales platform with catalog browsing and product comparison.",
-      },
-      freebuff: {
-        category: "Restaurant Platform",
-        description:
-          "Restaurant pre-ordering and management platform for faster service.",
-      },
-      "ztech-business": {
-        category: "Web Development",
-        description:
-          "Premium business website built to establish trust and generate leads.",
-      },
-    },
+    items: PROJECT_ITEMS,
   },
   process: {
     eyebrow: "Process",

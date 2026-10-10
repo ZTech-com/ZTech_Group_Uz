@@ -29,7 +29,7 @@ src/
   components/
     layout/       # Navbar, Footer
     sections/     # Hero, Services, Projects, Process, Contact, ...
-    ui/           # Button, Reveal, SectionHeading, MiniPreview
+    ui/           # Button, Reveal, SectionHeading, AutoplayVideo, ProductLab, ScreenshotGallery, Lightbox, VideoModal
   lib/            # constants.ts (content), telegram.ts (deep-link helpers)
 ```
 

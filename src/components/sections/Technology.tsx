@@ -62,7 +62,7 @@ function OrbitRing({
                 className={`whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ${
                   active === tech
                     ? "scale-110 border-[var(--accent-bright)]/60 bg-[var(--accent-soft)] text-[var(--text-primary)]"
-                    : "border-[var(--border-subtle)] bg-[#0c0d10] text-[var(--text-secondary)] hover:border-white/20 hover:text-[var(--text-primary)]"
+                    : "border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 {tech}
@@ -80,10 +80,9 @@ export default function Technology() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section className="relative overflow-hidden py-28 sm:py-36">
+    <section className="section-dark relative overflow-hidden py-28 sm:py-36">
       <div className="container-page">
         <SectionHeading
-          eyebrow={t.technology.eyebrow}
           title={t.technology.title}
           description={t.technology.description}
           align="center"
@@ -111,7 +110,7 @@ export default function Technology() {
               onHover={setActive}
             />
 
-            <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-gradient-to-br from-[var(--accent)]/20 to-[var(--accent-cyan)]/10 text-xs font-semibold text-[var(--text-primary)] shadow-[0_0_40px_-5px_rgba(124,155,255,0.4)]">
+            <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--accent-soft)] text-xs font-semibold text-[var(--text-primary)] shadow-[0_0_40px_-5px_rgba(41,151,255,0.45)]">
               ZTech
             </div>
           </div>
@@ -123,7 +122,7 @@ export default function Technology() {
             {[...TECHNOLOGIES, ...TECHNOLOGIES].map((tech, i) => (
               <span
                 key={`${tech}-${i}`}
-                className="whitespace-nowrap rounded-full border border-[var(--border-subtle)] bg-white/[0.03] px-4 py-2 text-sm text-[var(--text-secondary)]"
+                className="whitespace-nowrap rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-2 text-sm text-[var(--text-secondary)]"
               >
                 {tech}
               </span>

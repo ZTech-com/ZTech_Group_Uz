@@ -31,23 +31,22 @@ export default function Services() {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative py-28 sm:py-36">
+    <section id="services" className="relative bg-[var(--bg-elevated)] py-28 sm:py-36">
       <div className="container-page">
-        <SectionHeading
-          eyebrow={t.services.eyebrow}
-          title={t.services.title}
-          description={t.services.description}
-        />
+        <SectionHeading title={t.services.title} description={t.services.description} />
 
-        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICE_IDS.map((id, i) => {
-            const Icon = ICONS[id];
-            const service = t.services.items[id];
-            return (
-              <Reveal key={id} delay={(i % 4) * 0.06}>
-                <div className="glow-border card-surface group relative flex h-full flex-col rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-white/[0.03] text-[var(--text-primary)] transition-colors duration-300 group-hover:border-[var(--accent-bright)]/40 group-hover:text-[var(--accent-bright)]">
-                    <Icon size={20} strokeWidth={1.6} />
+        <Reveal delay={0.1}>
+          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICE_IDS.map((id) => {
+              const Icon = ICONS[id];
+              const service = t.services.items[id];
+              return (
+                <div
+                  key={id}
+                  className="card-surface group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--card-shadow-hover)]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                    <Icon size={20} strokeWidth={1.75} />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold text-[var(--text-primary)]">
                     {service.title}
@@ -61,10 +60,10 @@ export default function Services() {
                     </p>
                   </div>
                 </div>
-              </Reveal>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

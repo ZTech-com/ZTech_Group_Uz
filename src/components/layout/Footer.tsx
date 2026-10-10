@@ -8,7 +8,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative border-t border-[var(--border-subtle)] py-14">
+    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--bg-elevated)] py-14">
       <div className="container-page">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>
@@ -16,8 +16,8 @@ export default function Footer() {
               href="#home"
               className="flex items-center gap-2 text-base font-semibold tracking-tight text-[var(--text-primary)]"
             >
-              <span className="relative flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-[var(--accent-bright)] to-[var(--accent-cyan)]">
-                <span className="h-2 w-2 rounded-sm bg-[#07080a]" />
+              <span className="relative flex h-6 w-6 items-center justify-center rounded-md bg-[var(--accent)]">
+                <span className="h-2 w-2 rounded-sm bg-white" />
               </span>
               ZTech Group
             </Link>

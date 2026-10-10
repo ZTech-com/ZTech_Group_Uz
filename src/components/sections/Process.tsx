@@ -11,22 +11,18 @@ export default function Process() {
   return (
     <section id="process" className="relative py-28 sm:py-36">
       <div className="container-page">
-        <SectionHeading
-          eyebrow={t.process.eyebrow}
-          title={t.process.title}
-          description={t.process.description}
-        />
+        <SectionHeading title={t.process.title} description={t.process.description} />
 
         <div className="relative mt-16">
-          <div className="absolute left-[19px] top-2 hidden h-[calc(100%-16px)] w-px bg-gradient-to-b from-[var(--border-strong)] via-[var(--border-subtle)] to-transparent sm:block" />
+          <div className="absolute left-[19px] top-2 hidden h-[calc(100%-16px)] w-px bg-[var(--border-strong)] sm:block" />
 
           <div className="flex flex-col gap-3">
             {PROCESS_STEPS.map((step, i) => {
               const copy = t.process.steps[step.id];
               return (
-                <Reveal key={step.id} delay={i * 0.07}>
-                  <div className="group relative flex gap-5 rounded-2xl p-4 transition-colors duration-300 hover:bg-white/[0.02] sm:p-5">
-                    <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg-elevated)] text-xs font-semibold text-[var(--text-secondary)] transition-colors duration-300 group-hover:border-[var(--accent-bright)]/50 group-hover:text-[var(--accent-bright)]">
+                <Reveal key={step.id} delay={i * 0.06}>
+                  <div className="group relative flex gap-5 rounded-2xl p-4 transition-colors duration-300 hover:bg-[var(--bg-elevated)] sm:p-5">
+                    <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg)] text-xs font-semibold text-[var(--text-secondary)] transition-colors duration-300 group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
                       {step.index}
                     </div>
                     <div className="flex-1 pt-1">

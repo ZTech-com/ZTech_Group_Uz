@@ -46,8 +46,6 @@ export const SERVICE_IDS: ServiceId[] = [
   "ai",
 ];
 
-export type BuildPreviewKind = "menu" | "grid" | "list" | "chat" | "cards" | "chart" | "calendar";
-
 export type BuildPreviewId =
   | "restaurant"
   | "marketplace"
@@ -58,34 +56,36 @@ export type BuildPreviewId =
   | "store"
   | "booking";
 
-export type BuildPreview = {
-  id: BuildPreviewId;
-  kind: BuildPreviewKind;
-  from: string;
-  to: string;
-};
-
-export const BUILD_PREVIEWS: BuildPreview[] = [
-  { id: "restaurant", kind: "menu", from: "#ff9d6c", to: "#ff5e62" },
-  { id: "marketplace", kind: "grid", from: "#5b7cff", to: "#35d0e0" },
-  { id: "crm-dash", kind: "chart", from: "#7c9bff", to: "#9f7cff" },
-  { id: "bot", kind: "chat", from: "#35d0e0", to: "#5b7cff" },
-  { id: "biz-site", kind: "cards", from: "#9aa1ad", to: "#5b7cff" },
-  { id: "admin", kind: "list", from: "#a98cff", to: "#5b7cff" },
-  { id: "store", kind: "grid", from: "#4ade80", to: "#35d0e0" },
-  { id: "booking", kind: "calendar", from: "#ffb86c", to: "#ff9d6c" },
+export const BUILD_PREVIEW_IDS: BuildPreviewId[] = [
+  "restaurant",
+  "marketplace",
+  "crm-dash",
+  "bot",
+  "biz-site",
+  "admin",
+  "store",
+  "booking",
 ];
 
-export type ProjectId = "noutbuk-olami" | "freebuff" | "ztech-business";
+export type ProjectId =
+  | "noutbuk-olami"
+  | "emirhan-restaurant"
+  | "bunyod-portfolio"
+  | "restaurant-crm"
+  | "record-nazorat";
 
 export type Project = {
   id: ProjectId;
   name: string;
   tech: string[];
   status: "live" | "concept";
-  kind: BuildPreviewKind;
-  from: string;
-  to: string;
+  /** Looping preview clip — used by the alternating video showcase. */
+  video?: string;
+  /** Longer, user-triggered walkthrough shown in a modal (Restaurant CRM). */
+  explainerVideo?: string;
+  /** Screenshot set — used by the horizontal gallery showcase instead of video. */
+  gallery?: string[];
+  mascot?: string;
   url?: string;
 };
 
@@ -95,29 +95,46 @@ export const PROJECTS: Project[] = [
     name: "Noutbuk Olami",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "live",
-    kind: "grid",
-    from: "#5b7cff",
-    to: "#35d0e0",
+    video: "/videos/e-commerce.mp4",
     url: "https://noutbuk-olami-tawny.vercel.app/",
   },
   {
-    id: "freebuff",
-    name: "Freebuff",
-    tech: ["React", "Node.js", "Telegram Bot API"],
+    id: "emirhan-restaurant",
+    name: "Emirhan Restaurant",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "live",
-    kind: "menu",
-    from: "#ff9d6c",
-    to: "#ff5e62",
+    video: "/videos/landing-page.mp4",
     url: "https://emirhan-restaurant-phi.vercel.app/uz/",
   },
   {
-    id: "ztech-business",
-    name: "ZTech Business Website",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    status: "concept",
-    kind: "cards",
-    from: "#9aa1ad",
-    to: "#5b7cff",
+    id: "bunyod-portfolio",
+    name: "Bunyod Portfolio",
+    tech: ["Next.js", "TypeScript", "Framer Motion"],
+    status: "live",
+    video: "/videos/portfolio.mp4",
+    url: "https://bunyod-portfolio-jet.vercel.app/",
+  },
+  {
+    id: "restaurant-crm",
+    name: "Restaurant CRM",
+    tech: ["React", "Node.js", "Telegram Bot API"],
+    status: "live",
+    video: "/videos/restaurant-crm.mp4",
+    explainerVideo: "/videos/restaurant-crm-explainer.mp4",
+  },
+  {
+    id: "record-nazorat",
+    name: "Record Nazorat",
+    tech: ["Telegram Bot API", "Node.js"],
+    status: "live",
+    gallery: [
+      "/images/record-nazorat/bot-profile.png",
+      "/images/record-nazorat/admin-dashboard.png",
+      "/images/record-nazorat/attendance-calendar.png",
+      "/images/record-nazorat/group-management.png",
+      "/images/record-nazorat/student-leaderboard.png",
+    ],
+    mascot: "/images/record-nazorat/mascot.png",
   },
 ];
 

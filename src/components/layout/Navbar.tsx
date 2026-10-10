@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav
         className={`w-full max-w-5xl rounded-2xl border transition-all duration-500 ease-out ${
           scrolled
-            ? "border-[var(--border-subtle)] bg-[#0a0b0d]/80 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.6)] backdrop-blur-xl"
+            ? "border-[var(--border-subtle)] bg-white/80 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
       >
@@ -47,8 +47,8 @@ export default function Navbar() {
             className="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-[var(--text-primary)]"
             onClick={() => setOpen(false)}
           >
-            <span className="relative flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-[var(--accent-bright)] to-[var(--accent-cyan)]">
-              <span className="h-2 w-2 rounded-sm bg-[#07080a]" />
+            <span className="relative flex h-6 w-6 items-center justify-center rounded-md bg-[var(--accent)]">
+              <span className="h-2 w-2 rounded-sm bg-white" />
             </span>
             ZTech Group
           </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
-            <Button href="#contact" variant="secondary" className="!px-5 !py-2 text-sm">
+            <Button href="#contact" variant="primary" className="!px-5 !py-2 text-sm">
               {t.nav.startProject}
             </Button>
           </div>
@@ -89,13 +89,13 @@ export default function Navbar() {
       </nav>
 
       <AnimatePresence>
-        {open && (
+        {open ? (
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-3 right-3 top-[76px] z-40 rounded-2xl border border-[var(--border-subtle)] bg-[#0a0b0d]/95 p-3 shadow-2xl backdrop-blur-xl md:hidden"
+            className="absolute left-3 right-3 top-[76px] z-40 rounded-2xl border border-[var(--border-subtle)] bg-white/95 p-3 shadow-2xl backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1">
               {NAV_LINKS.map((link, i) => (
@@ -108,7 +108,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-base text-[var(--text-secondary)] transition-colors hover:bg-white/[0.04] hover:text-[var(--text-primary)]"
+                    className="block rounded-xl px-4 py-3 text-base text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-elevated)] hover:text-[var(--text-primary)]"
                   >
                     {t.nav[link.key]}
                   </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
               </Button>
             </div>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </header>
   );

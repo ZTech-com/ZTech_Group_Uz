@@ -25,16 +25,16 @@ function ContactCard({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="glow-border card-surface group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15"
+      className="glow-border card-surface group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
     >
       <div className="flex items-center gap-3.5">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--accent-bright)]/25 to-[var(--accent-cyan)]/15 text-sm font-semibold text-[var(--text-primary)]">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-semibold text-[var(--accent)]">
           {name.charAt(0)}
         </span>
         <div>
           <p className="text-sm font-medium text-[var(--text-primary)]">{name}</p>
           <p className="text-xs text-[var(--text-tertiary)]">
-            {role} · @{username}
+            {role}, @{username}
           </p>
         </div>
       </div>
@@ -57,7 +57,6 @@ export default function Contact() {
 
       <div className="container-page">
         <SectionHeading
-          eyebrow={t.contact.eyebrow}
           title={t.contact.title}
           description={t.contact.description}
           align="center"

@@ -14,14 +14,14 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           borderRadius: 7,
-          background: "linear-gradient(135deg, #7c9bff, #35d0e0)",
+          background: "#0071e3",
         }}
       >
         <div
           style={{
             width: 10,
             height: 10,
-            background: "#07080a",
+            background: "#ffffff",
             borderRadius: 2,
           }}
         />

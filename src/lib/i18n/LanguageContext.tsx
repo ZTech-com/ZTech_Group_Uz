@@ -5,7 +5,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { DEFAULT_LOCALE, LOCALES, type Locale } from "./locale";
@@ -17,6 +17,39 @@ const DICTIONARIES: Record<Locale, Dictionary> = { en, uz, ru };
 
 const STORAGE_KEY = "ztech-locale";
 
+type Listener = () => void;
+const listeners = new Set<Listener>();
+
+function isLocale(value: string | null): value is Locale {
+  return value === "en" || value === "uz" || value === "ru";
+}
+
+function getLocaleSnapshot(): Locale {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return isLocale(stored) ? stored : DEFAULT_LOCALE;
+  } catch {
+    return DEFAULT_LOCALE;
+  }
+}
+
+function getLocaleServerSnapshot(): Locale {
+  return DEFAULT_LOCALE;
+}
+
+function subscribeLocale(callback: Listener) {
+  listeners.add(callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    listeners.delete(callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function notifyLocaleListeners() {
+  listeners.forEach((listener) => listener());
+}
+
 type LanguageContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
@@ -27,30 +60,19 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored === "en" || stored === "uz" || stored === "ru") {
-        setLocaleState(stored);
-      }
-    } catch {
-      // ignore (private mode / blocked storage)
-    }
-  }, []);
+  const locale = useSyncExternalStore(subscribeLocale, getLocaleSnapshot, getLocaleServerSnapshot);
 
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
   function setLocale(next: Locale) {
-    setLocaleState(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      // ignore
+      // ignore (private mode / blocked storage)
     }
+    notifyLocaleListeners();
   }
 
   const value = useMemo(
