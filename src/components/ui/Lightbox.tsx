@@ -47,7 +47,7 @@ export default function Lightbox({ images, alts, index, onClose, onNavigate }: L
         type="button"
         onClick={onClose}
         aria-label="Close preview"
-        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-strong)] bg-black/70 text-white transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
       >
         <X size={20} />
       </button>
@@ -59,7 +59,7 @@ export default function Lightbox({ images, alts, index, onClose, onNavigate }: L
           onNavigate((index - 1 + images.length) % images.length);
         }}
         aria-label="Previous image"
-        className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-6"
+        className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-black/70 text-white transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] sm:left-6"
       >
         <ChevronLeft size={20} />
       </button>
@@ -70,7 +70,7 @@ export default function Lightbox({ images, alts, index, onClose, onNavigate }: L
           onNavigate((index + 1) % images.length);
         }}
         aria-label="Next image"
-        className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6"
+        className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-black/70 text-white transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] sm:right-6"
       >
         <ChevronRight size={20} />
       </button>

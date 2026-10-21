@@ -11,12 +11,12 @@ const ru: Dictionary = {
     startProject: "Начать проект",
   },
   hero: {
-    badge: "ZTech Group · Цифровые продукты и ПО",
+    badge: "ITop · Цифровые продукты и ПО",
     titlePrefix: "Мы создаём ",
     titleHighlight: "цифровые продукты",
     titleSuffix: ", которые двигают бизнес вперёд.",
     subtitle:
-      "Веб-сайты, платформы, Telegram-боты, CRM-системы и индивидуальное программное обеспечение — спроектированы, разработаны и доставлены ZTech Group.",
+      "Веб-сайты, платформы, Telegram-боты, CRM-системы и индивидуальное программное обеспечение — спроектированы, разработаны и доставлены ITop.",
     ctaPrimary: "Начать проект",
     ctaSecondary: "Посмотреть наши работы",
     lab: {
@@ -28,12 +28,12 @@ const ru: Dictionary = {
         bot: "Telegram-бот",
       },
       url: {
-        website: "ztech-business.vercel.app",
+        website: "ITop-business.vercel.app",
         ecommerce: "shop.noutbuk-olami.uz",
-        crm: "crm.ztech.uz",
+        crm: "crm.ITop.uz",
       },
       website: {
-        eyebrow: "ZTech Group",
+        eyebrow: "ITop",
         headline: "Растите с уверенностью.",
         body: "Премиальный бизнес-сайт, который вызывает доверие.",
         cta: "Начать",
@@ -55,7 +55,7 @@ const ru: Dictionary = {
         activity: "Активность за неделю",
       },
       bot: {
-        name: "ZTech Ассистент",
+        name: "ITop Ассистент",
         status: "в сети",
         botMessage: "Привет! Расскажите о своём проекте — подключим команду.",
         userMessage: "Нужен Telegram-бот для моего ресторана.",
@@ -126,7 +126,7 @@ const ru: Dictionary = {
     eyebrow: "Что Мы Создаём",
     title: "Продукты, Созданные Для Реального Бизнеса.",
     description:
-      "Небольшой обзор систем, которые проектирует и создаёт ZTech Group — каждая адаптирована под то, как реально работает бизнес.",
+      "Небольшой обзор систем, которые проектирует и создаёт ITop — каждая адаптирована под то, как реально работает бизнес.",
     items: {
       restaurant: { title: "Приём заказов в ресторане", category: "Еда и сервис" },
       marketplace: { title: "Маркетплейс ноутбуков", category: "E-Commerce" },
@@ -142,13 +142,13 @@ const ru: Dictionary = {
     eyebrow: "Проекты",
     title: "Создано Для Реального Бизнеса.",
     description:
-      "Подборка продуктов, которые ZTech Group спроектировала, разработала и доставила реальным клиентам.",
+      "Подборка продуктов, которые ITop спроектировала, разработала и доставила реальным клиентам.",
     viewProject: "Открыть проект",
     statusLive: "Работает",
     statusConcept: "Концепт / Демо",
     watchExplainer: "Посмотреть, как это работает",
     enquiryMessage: (name: string) =>
-      `Здравствуйте, ZTech Group! Хочу узнать больше о проекте «${name}».`,
+      `Здравствуйте, ITop! Хочу узнать больше о проекте «${name}».`,
     items: {
       "noutbuk-olami": {
         category: "Платформа электронной коммерции",
@@ -199,7 +199,7 @@ const ru: Dictionary = {
       launch: { title: "Запуск", description: "Развёртываем и передаём готовый продукт." },
     },
   },
-  whyZtech: {
+  whyITop: {
     titlePrefix: "Технологии Должны Быть ",
     titleHighlight: "Простыми.",
     subtitle:
@@ -264,12 +264,12 @@ const ru: Dictionary = {
       success: {
         title: "Ваша заявка готова.",
         subtitle:
-          "Мы подготовили вашу заявку на проект. Продолжите в Telegram, чтобы отправить её напрямую ZTech Group.",
+          "Мы подготовили вашу заявку на проект. Продолжите в Telegram, чтобы отправить её напрямую ITop.",
         continueTelegram: "Продолжить в Telegram",
         sendAnother: "Отправить ещё одну заявку",
       },
       messageLabels: {
-        header: "Заявка на проект ZTech Group",
+        header: "Заявка на проект ITop",
         name: "Имя",
         telegram: "Telegram",
         phone: "Телефон",
@@ -282,7 +282,7 @@ const ru: Dictionary = {
     tagline: "Цифровые продукты. Программное обеспечение. Автоматизация.",
     navigate: "Навигация",
     telegramLabel: "Telegram",
-    rights: "© 2026 ZTech Group. Все права защищены.",
+    rights: "© 2026 ITop. Все права защищены.",
     precision: "Создано с точностью.",
   },
 };

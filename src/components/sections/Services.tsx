@@ -31,34 +31,32 @@ export default function Services() {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative bg-[var(--bg-elevated)] py-28 sm:py-36">
+    <section id="services" className="relative py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading title={t.services.title} description={t.services.description} />
 
         <Reveal delay={0.1}>
-          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICE_IDS.map((id) => {
               const Icon = ICONS[id];
               const service = t.services.items[id];
               return (
                 <div
                   key={id}
-                  className="card-surface group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--card-shadow-hover)]"
+                  className="card-surface group flex h-full flex-col rounded-xl p-5 transition-colors duration-300 hover:border-[var(--border-strong)] sm:p-6"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border-subtle)] text-[var(--accent-bright)]">
                     <Icon size={20} strokeWidth={1.75} />
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold text-[var(--text-primary)]">
+                  <h3 className="mt-5 text-lg font-bold text-[var(--text-primary)]">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  <p className="mt-2 text-[15px] leading-relaxed text-[var(--text-secondary)]">
                     {service.description}
                   </p>
-                  <div className="mt-4 grid grid-rows-[0fr] overflow-hidden transition-all duration-500 ease-out group-hover:grid-rows-[1fr]">
-                    <p className="min-h-0 text-sm leading-relaxed text-[var(--text-tertiary)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      {service.details}
-                    </p>
-                  </div>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[var(--text-tertiary)]">
+                    {service.details}
+                  </p>
                 </div>
               );
             })}

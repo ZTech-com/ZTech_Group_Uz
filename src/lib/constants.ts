@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "ZTech Group",
+  name: "ITop",
   url: "https://ztechgroup.vercel.app",
 };
 
@@ -10,7 +10,7 @@ export const TELEGRAM = {
     url: "https://t.me/Bunyod_Pulatov",
   },
   group: {
-    name: "ZTech Group",
+    name: "ITop",
     username: "ztechuz001",
     url: "https://t.me/ztechuz001",
   },

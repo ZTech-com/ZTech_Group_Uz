@@ -38,7 +38,7 @@ export default function VideoModal({ src, title, onClose }: VideoModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl overflow-hidden rounded-2xl bg-black shadow-2xl"
+        className="relative w-full max-w-3xl overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -46,7 +46,7 @@ export default function VideoModal({ src, title, onClose }: VideoModalProps) {
           type="button"
           onClick={onClose}
           aria-label="Close video"
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-strong)] bg-black/70 text-white transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
         >
           <X size={18} />
         </button>

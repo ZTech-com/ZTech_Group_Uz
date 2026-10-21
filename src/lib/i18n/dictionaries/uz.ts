@@ -11,12 +11,12 @@ const uz: Dictionary = {
     startProject: "Loyihani boshlash",
   },
   hero: {
-    badge: "ZTech Group · Raqamli mahsulotlar va dasturiy ta'minot",
+    badge: "ITop · Raqamli mahsulotlar va dasturiy ta'minot",
     titlePrefix: "Biznesni oldinga olib boruvchi ",
     titleHighlight: "raqamli mahsulotlar",
     titleSuffix: " yaratamiz.",
     subtitle:
-      "Veb-saytlar, platformalar, Telegram botlar, CRM tizimlari va maxsus dasturiy ta'minot — barchasini ZTech Group ishlab chiqadi va yetkazib beradi.",
+      "Veb-saytlar, platformalar, Telegram botlar, CRM tizimlari va maxsus dasturiy ta'minot — barchasini ITop ishlab chiqadi va yetkazib beradi.",
     ctaPrimary: "Loyihani boshlash",
     ctaSecondary: "Ishlarimizni ko'rish",
     lab: {
@@ -28,12 +28,12 @@ const uz: Dictionary = {
         bot: "Telegram Bot",
       },
       url: {
-        website: "ztech-business.vercel.app",
+        website: "ITop-business.vercel.app",
         ecommerce: "shop.noutbuk-olami.uz",
-        crm: "crm.ztech.uz",
+        crm: "crm.ITop.uz",
       },
       website: {
-        eyebrow: "ZTech Group",
+        eyebrow: "ITop",
         headline: "Ishonch bilan o'sing.",
         body: "Ishonch uyg'otish uchun yaratilgan premium biznes veb-sayti.",
         cta: "Boshlash",
@@ -55,7 +55,7 @@ const uz: Dictionary = {
         activity: "Haftalik faollik",
       },
       bot: {
-        name: "ZTech Yordamchi",
+        name: "ITop Yordamchi",
         status: "onlayn",
         botMessage: "Salom! Loyihangiz haqida gapiring — jamoani ulaymiz.",
         userMessage: "Restoranim uchun Telegram bot kerak.",
@@ -126,7 +126,7 @@ const uz: Dictionary = {
     eyebrow: "Biz Nima Yaratamiz",
     title: "Haqiqiy Bizneslar Uchun Yaratilgan Mahsulotlar.",
     description:
-      "ZTech Group qanday tizimlar yaratishi va qurishi haqida qisqacha tasavvur — har biri biznesning haqiqiy ishlash tartibiga moslashtirilgan.",
+      "ITop qanday tizimlar yaratishi va qurishi haqida qisqacha tasavvur — har biri biznesning haqiqiy ishlash tartibiga moslashtirilgan.",
     items: {
       restaurant: { title: "Restoran Buyurtma Tizimi", category: "Ovqatlanish xizmati" },
       marketplace: { title: "Noutbuk Marketpleysi", category: "Elektron tijorat" },
@@ -142,13 +142,13 @@ const uz: Dictionary = {
     eyebrow: "Loyihalar",
     title: "Haqiqiy Bizneslar Uchun Yaratilgan.",
     description:
-      "ZTech Group haqiqiy mijozlar uchun loyihalashtirgan, qurgan va yetkazib bergan mahsulotlar tanlovi.",
+      "ITop haqiqiy mijozlar uchun loyihalashtirgan, qurgan va yetkazib bergan mahsulotlar tanlovi.",
     viewProject: "Loyihani ko'rish",
     statusLive: "Faol",
     statusConcept: "Konsept / Demo",
     watchExplainer: "Qanday ishlashini ko'rish",
     enquiryMessage: (name: string) =>
-      `Salom ZTech Group, "${name}" loyihasi haqida ko'proq ma'lumot olmoqchiman.`,
+      `Salom ITop, "${name}" loyihasi haqida ko'proq ma'lumot olmoqchiman.`,
     items: {
       "noutbuk-olami": {
         category: "Elektron Tijorat Platformasi",
@@ -199,7 +199,7 @@ const uz: Dictionary = {
       launch: { title: "Ishga tushirish", description: "Yakuniy mahsulotni joylashtiramiz va yetkazib beramiz." },
     },
   },
-  whyZtech: {
+  whyITop: {
     titlePrefix: "Texnologiya ",
     titleHighlight: "Oddiy Bo'lishi Kerak.",
     subtitle:
@@ -264,12 +264,12 @@ const uz: Dictionary = {
       success: {
         title: "So'rovingiz tayyor.",
         subtitle:
-          "Loyiha so'rovingizni tayyorladik. ZTech Group'ga to'g'ridan-to'g'ri yuborish uchun Telegram'da davom eting.",
+          "Loyiha so'rovingizni tayyorladik. ITop'ga to'g'ridan-to'g'ri yuborish uchun Telegram'da davom eting.",
         continueTelegram: "Telegram'da davom etish",
         sendAnother: "Yana bir so'rov yuborish",
       },
       messageLabels: {
-        header: "ZTech Group Loyiha So'rovi",
+        header: "ITop Loyiha So'rovi",
         name: "Ism",
         telegram: "Telegram",
         phone: "Telefon",
@@ -282,7 +282,7 @@ const uz: Dictionary = {
     tagline: "Raqamli mahsulotlar. Dasturiy ta'minot. Avtomatlashtirish.",
     navigate: "Navigatsiya",
     telegramLabel: "Telegram",
-    rights: "© 2026 ZTech Group. Barcha huquqlar himoyalangan.",
+    rights: "© 2026 ITop. Barcha huquqlar himoyalangan.",
     precision: "Aniqlik bilan qurilgan.",
   },
 };

@@ -26,9 +26,9 @@ const TAB_ICONS: Record<LabTabId, LucideIcon> = {
 function Dots() {
   return (
     <div className="flex items-center gap-1.5">
-      <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-      <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-      <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+      <span className="h-2 w-2 rounded-full bg-[#8C6A16]" />
+      <span className="h-2 w-2 rounded-full bg-[#D4AF37]" />
+      <span className="h-2 w-2 rounded-full bg-[#5c4a20]" />
     </div>
   );
 }
@@ -37,36 +37,36 @@ function WebsiteScene() {
   const { t } = useLanguage();
   const copy = t.hero.lab.website;
   return (
-    <div className="flex h-full flex-col justify-between bg-white p-5">
+    <div className="flex h-full flex-col justify-between bg-[#111111] p-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <span className="h-4 w-4 rounded-[5px] bg-[var(--accent)]" />
-          <span className="text-[11px] font-semibold text-[#1d1d1f]">{copy.eyebrow}</span>
+          <span className="text-[11px] font-semibold text-[#f5f5f5]">{copy.eyebrow}</span>
         </div>
         <div className="flex gap-3">
-          <span className="h-1.5 w-6 rounded-full bg-[#e5e5e7]" />
-          <span className="h-1.5 w-6 rounded-full bg-[#e5e5e7]" />
-          <span className="h-1.5 w-6 rounded-full bg-[#e5e5e7]" />
+          <span className="h-px w-6 rounded-full bg-[#53451f]" />
+          <span className="h-px w-6 rounded-full bg-[#53451f]" />
+          <span className="h-px w-6 rounded-full bg-[#53451f]" />
         </div>
       </div>
 
       <div className="flex flex-1 items-center gap-4 pt-4">
         <div className="flex-1">
-          <p className="text-[19px] font-semibold leading-tight tracking-tight text-[#1d1d1f]">
+          <p className="text-[19px] font-semibold leading-tight tracking-tight text-[#f5f5f5]">
             {copy.headline}
           </p>
-          <p className="mt-2 max-w-[20ch] text-[11px] leading-relaxed text-[#6e6e73]">
+          <p className="mt-2 max-w-[20ch] text-[11px] leading-relaxed text-[#a3a3a3]">
             {copy.body}
           </p>
-          <span className="mt-3 inline-flex items-center rounded-full bg-[#0071e3] px-3 py-1.5 text-[10px] font-medium text-white">
+          <span className="mt-3 inline-flex items-center rounded-md bg-[#D4AF37] px-3 py-1.5 text-[10px] font-medium text-[#080808]">
             {copy.cta}
           </span>
         </div>
         <div className="hidden flex-1 flex-col gap-2 sm:flex">
-          <div className="h-16 rounded-xl bg-gradient-to-br from-[#eaf3ff] to-[#f5f5f7]" />
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#e5e5e7] px-2.5 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#34c759]" />
-            <span className="text-[9px] font-medium text-[#1d1d1f]">{copy.stat}</span>
+          <div className="h-16 rounded-xl bg-gradient-to-br from-[#302710] to-[#17140d]" />
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#3a3221] px-2.5 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
+            <span className="text-[9px] font-medium text-[#f5f5f5]">{copy.stat}</span>
           </div>
         </div>
       </div>
@@ -78,20 +78,20 @@ function EcommerceScene() {
   const { t } = useLanguage();
   const copy = t.hero.lab.ecommerce;
   const products = [
-    { name: copy.product1, price: copy.price1, from: "#eef4ff", to: "#dce9ff" },
-    { name: copy.product2, price: copy.price2, from: "#fff2e8", to: "#ffe0cc" },
+    { name: copy.product1, price: copy.price1, from: "#302710", to: "#19150c" },
+    { name: copy.product2, price: copy.price2, from: "#272015", to: "#17130d" },
   ];
   return (
-    <div className="flex h-full flex-col bg-white p-5">
+    <div className="flex h-full flex-col bg-[#111111] p-5">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold text-[#1d1d1f]">{copy.store}</span>
-        <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-[#f5f5f7]">
-          <span className="h-2.5 w-2.5 rounded-sm border border-[#86868b]" />
+        <span className="text-[11px] font-semibold text-[#f5f5f5]">{copy.store}</span>
+        <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-[#201b10]">
+          <span className="h-2.5 w-2.5 rounded-sm border border-[#8A857A]" />
           <motion.span
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, type: "spring", stiffness: 500, damping: 20 }}
-            className="absolute -right-1 -top-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#0071e3] text-[8px] font-semibold text-white"
+            className="absolute -right-1 -top-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#D4AF37] text-[8px] font-semibold text-[#080808]"
           >
             2
           </motion.span>
@@ -99,15 +99,15 @@ function EcommerceScene() {
       </div>
       <div className="mt-4 grid flex-1 grid-cols-2 gap-3">
         {products.map((p) => (
-          <div key={p.name} className="flex flex-col rounded-xl border border-[#eceef0] p-2.5">
+          <div key={p.name} className="flex flex-col rounded-lg border border-[#3a3221] p-2.5">
             <div
               className="h-14 rounded-lg"
               style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}
             />
-            <p className="mt-2 truncate text-[10px] font-medium text-[#1d1d1f]">{p.name}</p>
+            <p className="mt-2 truncate text-[10px] font-medium text-[#f5f5f5]">{p.name}</p>
             <div className="mt-1 flex items-center justify-between">
-              <span className="text-[10px] font-semibold text-[#1d1d1f]">{p.price}</span>
-              <span className="rounded-full bg-[#0071e3] px-2 py-0.5 text-[8px] font-medium text-white">
+              <span className="text-[10px] font-semibold text-[#f5f5f5]">{p.price}</span>
+              <span className="rounded-md bg-[#D4AF37] px-2 py-0.5 text-[8px] font-medium text-[#080808]">
                 {copy.add}
               </span>
             </div>
@@ -123,33 +123,33 @@ function CrmScene() {
   const copy = t.hero.lab.crm;
   const bars = [40, 65, 50, 80, 60, 95, 70];
   return (
-    <div className="flex h-full bg-white">
-      <div className="flex w-10 flex-col items-center gap-3 border-r border-[#eceef0] py-4">
+    <div className="flex h-full bg-[#111111]">
+      <div className="flex w-10 flex-col items-center gap-3 border-r border-[#3a3221] py-4">
         {[0, 1, 2, 3].map((i) => (
           <span
             key={i}
-            className={`h-5 w-5 rounded-md ${i === 0 ? "bg-[#0071e3]" : "bg-[#e5e5e7]"}`}
+            className={`h-5 w-5 rounded-md ${i === 0 ? "bg-[#D4AF37]" : "bg-[#302a1d]"}`}
           />
         ))}
       </div>
       <div className="flex-1 p-4">
         <div className="grid grid-cols-2 gap-2.5">
-          <div className="rounded-xl bg-[#f5f5f7] p-2.5">
-            <p className="text-[9px] text-[#6e6e73]">{copy.customers}</p>
-            <p className="mt-0.5 text-[15px] font-semibold text-[#1d1d1f]">{copy.customersValue}</p>
+          <div className="rounded-lg bg-[#191919] p-2.5">
+            <p className="text-[9px] text-[#a3a3a3]">{copy.customers}</p>
+            <p className="mt-0.5 text-[15px] font-semibold text-[#f5f5f5]">{copy.customersValue}</p>
           </div>
-          <div className="rounded-xl bg-[#f5f5f7] p-2.5">
-            <p className="text-[9px] text-[#6e6e73]">{copy.growth}</p>
-            <p className="mt-0.5 text-[15px] font-semibold text-[#34c759]">{copy.growthValue}</p>
+          <div className="rounded-lg bg-[#191919] p-2.5">
+            <p className="text-[9px] text-[#a3a3a3]">{copy.growth}</p>
+            <p className="mt-0.5 text-[15px] font-semibold text-[#F5D76E]">{copy.growthValue}</p>
           </div>
         </div>
-        <div className="mt-3 rounded-xl border border-[#eceef0] p-2.5">
-          <p className="text-[9px] text-[#6e6e73]">{copy.activity}</p>
+        <div className="mt-3 rounded-lg border border-[#3a3221] p-2.5">
+          <p className="text-[9px] text-[#a3a3a3]">{copy.activity}</p>
           <svg viewBox="0 0 140 40" className="mt-2 h-10 w-full" aria-hidden="true">
             <polyline
               points="0,30 20,22 40,26 60,14 80,18 100,6 120,10 140,2"
               fill="none"
-              stroke="#0071e3"
+              stroke="#D4AF37"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -174,29 +174,29 @@ function BotScene() {
   const { t } = useLanguage();
   const copy = t.hero.lab.bot;
   return (
-    <div className="flex h-full flex-col bg-[#e7ebf0] p-4">
+    <div className="flex h-full flex-col bg-[#151515] p-4">
       <div className="flex flex-1 flex-col justify-end gap-2">
-        <div className="max-w-[80%] rounded-2xl rounded-bl-md bg-white px-3 py-2 text-[10.5px] leading-snug text-[#1d1d1f] shadow-sm">
+        <div className="max-w-[80%] rounded-2xl rounded-bl-md border border-[#3a3221] bg-[#202020] px-3 py-2 text-[10.5px] leading-snug text-[#f5f5f5]">
           {copy.botMessage}
         </div>
-        <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-[#0071e3] px-3 py-2 text-[10.5px] leading-snug text-white shadow-sm">
+        <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-[#D4AF37] px-3 py-2 text-[10.5px] leading-snug text-[#080808]">
           {copy.userMessage}
         </div>
-        <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-white px-3 py-2 shadow-sm">
+        <div className="flex items-center gap-1 rounded-2xl rounded-bl-md border border-[#3a3221] bg-[#202020] px-3 py-2">
           {[0, 1, 2].map((i) => (
             <motion.span
               key={i}
-              className="h-1.5 w-1.5 rounded-full bg-[#86868b]"
+              className="h-1.5 w-1.5 rounded-full bg-[#8A857A]"
               animate={{ opacity: [0.3, 1, 0.3] }}
               transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.15 }}
             />
           ))}
         </div>
       </div>
-      <div className="mt-3 flex items-center gap-2 rounded-full bg-white px-3 py-2">
-        <span className="flex-1 text-[10px] text-[#86868b]">{copy.placeholder}</span>
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0071e3]">
-          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-white">
+      <div className="mt-3 flex items-center gap-2 rounded-full border border-[#3a3221] bg-[#202020] px-3 py-2">
+        <span className="flex-1 text-[10px] text-[#8A857A]">{copy.placeholder}</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D4AF37]">
+          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-[#080808]">
             <path d="M3 11.5L21 3l-5.5 18-4.2-7.3L3 11.5z" />
           </svg>
         </span>
@@ -267,21 +267,21 @@ export default function ProductLab() {
         className="card-surface overflow-hidden rounded-2xl"
         style={{ rotateX, rotateY, willChange: "transform" }}
       >
-        <div className="flex h-11 items-center gap-3 border-b border-[var(--border-subtle)] bg-white px-4">
+        <div className="flex h-11 items-center gap-3 border-b border-[var(--border-subtle)] bg-[#111111] px-4">
           {active === "bot" ? (
             <div className="flex items-center gap-2">
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
                 <Bot size={13} />
               </span>
               <div className="leading-none">
-                <p className="text-[11px] font-medium text-[#1d1d1f]">{t.hero.lab.bot.name}</p>
-                <p className="text-[9px] text-[#34c759]">{t.hero.lab.bot.status}</p>
+                <p className="text-[11px] font-medium text-[#f5f5f5]">{t.hero.lab.bot.name}</p>
+                <p className="text-[9px] text-[#F5D76E]">{t.hero.lab.bot.status}</p>
               </div>
             </div>
           ) : (
             <>
               <Dots />
-              <span className="ml-auto truncate text-[11px] text-[#86868b]">{chromeUrl}</span>
+              <span className="ml-auto truncate text-[11px] text-[#8A857A]">{chromeUrl}</span>
             </>
           )}
         </div>
@@ -317,6 +317,7 @@ export default function ProductLab() {
               key={id}
               type="button"
               role="tab"
+              aria-label={t.hero.lab.tabs[id]}
               id={`${tabListId}-${id}`}
               aria-selected={isActive}
               tabIndex={isActive ? 0 : -1}
@@ -332,7 +333,7 @@ export default function ProductLab() {
               ) : null}
               <span
                 className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors ${
-                  isActive ? "text-white" : "text-[var(--text-secondary)]"
+                  isActive ? "text-[#080808]" : "text-[var(--text-secondary)]"
                 }`}
               >
                 <Icon size={13} strokeWidth={2} />

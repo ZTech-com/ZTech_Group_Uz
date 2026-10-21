@@ -30,22 +30,22 @@ export default function WhatWeBuild() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative border-y border-[var(--border-subtle)] bg-[var(--bg-elevated)] py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading title={t.whatWeBuild.title} description={t.whatWeBuild.description} />
       </div>
 
-      <div className="mt-12 overflow-x-auto pb-2">
-        <div className="container-page flex w-max gap-4 sm:w-full sm:flex-wrap">
+      <div className="container-page mt-12">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {BUILD_PREVIEW_IDS.map((id) => {
             const Icon = ICONS[id];
             const copy = t.whatWeBuild.items[id];
             return (
               <div
                 key={id}
-                className="flex w-[220px] shrink-0 items-start gap-3 rounded-2xl border border-[var(--border-subtle)] p-4 transition-colors duration-200 hover:border-[var(--text-tertiary)] sm:w-[240px]"
+                className="flex min-w-0 items-start gap-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg)] p-4 transition-colors duration-200 hover:border-[var(--border-strong)]"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--bg-elevated)] text-[var(--accent)]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] text-[var(--accent-bright)]">
                   <Icon size={18} strokeWidth={1.75} />
                 </span>
                 <div>

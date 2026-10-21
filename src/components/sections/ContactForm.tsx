@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ChevronDown, Send } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { TELEGRAM } from "@/lib/constants";
 import { buildProjectRequestMessage, buildTelegramDeepLink } from "@/lib/telegram";
 
 type FormState = {
@@ -96,7 +97,7 @@ export default function ContactForm() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="card-surface flex flex-col items-center rounded-2xl p-8 text-center sm:p-10"
       >
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-400">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--border-strong)] text-[var(--accent-bright)]">
           <CheckCircle2 size={28} />
         </span>
         <h3 className="mt-5 text-xl font-semibold text-[var(--text-primary)]">
@@ -112,10 +113,10 @@ export default function ContactForm() {
 
         <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row">
           <a
-            href={buildTelegramDeepLink("ztechuz001", generatedMessage)}
+            href={buildTelegramDeepLink(TELEGRAM.group.username, generatedMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.02] active:scale-[0.97]"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-sm font-medium text-[#080808] transition-colors duration-300 hover:bg-[var(--accent-bright)]"
           >
             {t.contact.form.success.continueTelegram}
             <Send size={15} />
@@ -123,7 +124,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={handleReset}
-            className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] px-6 py-3 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+            className="inline-flex items-center justify-center rounded-lg border border-[var(--border-strong)] px-6 py-3 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--accent-bright)]"
           >
             {t.contact.form.success.sendAnother}
           </button>
@@ -133,7 +134,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card-surface rounded-2xl p-6 sm:p-8" noValidate>
+    <form onSubmit={handleSubmit}     className="card-surface rounded-xl p-5 sm:p-8" noValidate>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--text-primary)]">
@@ -246,7 +247,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[var(--accent-deep)] active:scale-[0.98] sm:w-auto"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3.5 text-sm font-medium text-[#080808] transition-colors duration-300 hover:bg-[var(--accent-bright)] sm:w-auto"
       >
         {t.contact.form.submit}
         <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">

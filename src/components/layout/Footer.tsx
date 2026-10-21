@@ -1,25 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, TELEGRAM } from "@/lib/constants";
+import { NAV_LINKS, SITE, TELEGRAM } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative border-t border-[var(--border-subtle)] bg-[var(--bg-elevated)] py-14">
+    <footer className="relative border-t border-[var(--border-subtle)] bg-[#080808] py-12 sm:py-16">
       <div className="container-page">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>
             <Link
               href="#home"
-              className="flex items-center gap-2 text-base font-semibold tracking-tight text-[var(--text-primary)]"
+              className="flex items-center gap-2 text-base font-bold tracking-tight"
             >
-              <span className="relative flex h-6 w-6 items-center justify-center rounded-md bg-[var(--accent)]">
-                <span className="h-2 w-2 rounded-sm bg-white" />
+              <span className="relative flex h-7 w-7 items-center justify-center rounded-md border border-[var(--border-strong)]">
+                <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-[var(--accent-deep)] via-[var(--accent)] to-[var(--accent-bright)]" />
               </span>
-              ZTech Group
+              <span className="brand-wordmark">{SITE.name}</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--text-secondary)]">
               {t.footer.tagline}
@@ -35,7 +35,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                    className="text-[15px] text-[var(--text-secondary)] transition-colors hover:text-[var(--accent-bright)]"
                   >
                     {t.nav[link.key]}
                   </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
                   href={TELEGRAM.primary.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                  className="text-[15px] text-[var(--text-secondary)] transition-colors hover:text-[var(--accent-bright)]"
                 >
                   @{TELEGRAM.primary.username}
                 </a>
@@ -64,7 +64,7 @@ export default function Footer() {
                   href={TELEGRAM.group.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                  className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--accent-bright)]"
                 >
                   @{TELEGRAM.group.username}
                 </a>

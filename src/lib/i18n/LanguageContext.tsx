@@ -15,7 +15,8 @@ import ru from "./dictionaries/ru";
 
 const DICTIONARIES: Record<Locale, Dictionary> = { en, uz, ru };
 
-const STORAGE_KEY = "ztech-locale";
+const STORAGE_KEY = "itop-locale";
+const LEGACY_STORAGE_KEY = ["ztech", "locale"].join("-");
 
 type Listener = () => void;
 const listeners = new Set<Listener>();
@@ -27,7 +28,16 @@ function isLocale(value: string | null): value is Locale {
 function getLocaleSnapshot(): Locale {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    return isLocale(stored) ? stored : DEFAULT_LOCALE;
+    if (isLocale(stored)) return stored;
+
+    const legacyStored = window.localStorage.getItem(LEGACY_STORAGE_KEY);
+    if (isLocale(legacyStored)) {
+      window.localStorage.setItem(STORAGE_KEY, legacyStored);
+      window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+      return legacyStored;
+    }
+
+    return DEFAULT_LOCALE;
   } catch {
     return DEFAULT_LOCALE;
   }
@@ -69,6 +79,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   function setLocale(next: Locale) {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
+      window.localStorage.removeItem(LEGACY_STORAGE_KEY);
     } catch {
       // ignore (private mode / blocked storage)
     }

@@ -152,7 +152,7 @@ export default function AutoplayVideo({ src, className = "" }: AutoplayVideoProp
           aria-label={playing ? "Pause project preview" : "Play project preview"}
           className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors hover:bg-black/20"
         >
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-[var(--text-primary)] shadow-lg">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[#111111]/95 text-[var(--accent-bright)] shadow-lg">
             {playing ? (
               <span className="flex gap-1">
                 <span className="h-4 w-1.5 rounded-sm bg-current" />

@@ -25,14 +25,14 @@ type ButtonAsButton = BaseProps & {
 type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]";
+  "group relative inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-[15px] font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]";
 
 const variants: Record<string, string> = {
   primary:
-    "bg-[var(--accent)] text-white hover:bg-[var(--accent-deep)] active:scale-[0.97]",
+    "button-gold text-[#080808] active:scale-[0.98]",
   secondary:
-    "bg-[var(--bg-elevated)] text-[var(--text-primary)] border border-[var(--border-strong)] hover:border-[var(--text-tertiary)] active:scale-[0.97]",
-  ghost: "text-[var(--accent)] hover:text-[var(--accent-deep)] px-2",
+    "bg-transparent text-[var(--text-primary)] border border-[var(--border-strong)] hover:border-[var(--accent-bright)] hover:bg-[var(--accent-soft)] active:scale-[0.98]",
+  ghost: "text-[var(--accent-bright)] hover:text-[var(--text-primary)] px-2",
 };
 
 function Arrow() {

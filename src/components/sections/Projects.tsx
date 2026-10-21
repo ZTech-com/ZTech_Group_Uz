@@ -19,12 +19,14 @@ function StatusBadge({ status, label }: { status: Project["status"]; label: stri
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${
-        status === "live" ? "bg-emerald-400/10 text-emerald-400" : "bg-white/10 text-[var(--text-secondary)]"
+        status === "live"
+          ? "bg-[var(--accent-soft)] text-[var(--accent-bright)]"
+          : "bg-[var(--bg-elevated)] text-[var(--text-secondary)]"
       }`}
     >
       <span
         className={`h-1.5 w-1.5 rounded-full ${
-          status === "live" ? "bg-emerald-400" : "bg-[var(--text-tertiary)]"
+          status === "live" ? "bg-[var(--accent)]" : "bg-[var(--text-tertiary)]"
         }`}
       />
       {label}
@@ -41,11 +43,11 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="section-dark relative py-28 sm:py-36">
+    <section id="projects" className="section-dark relative border-y border-[var(--border-subtle)] py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading title={t.projects.title} description={t.projects.description} />
 
-        <div className="mt-16 flex flex-col gap-20 sm:gap-28">
+        <div className="mt-14 flex flex-col gap-16 sm:gap-24">
           {VIDEO_PROJECTS.map((project, i) => {
             const copy = t.projects.items[project.id];
             const reversed = i % 2 === 1;
@@ -58,7 +60,7 @@ export default function Projects() {
                   }`}
                 >
                   <div className="relative w-full lg:w-7/12">
-                    <div className="card-surface relative aspect-[16/10] overflow-hidden rounded-2xl">
+                    <div className="card-surface relative aspect-[16/10] overflow-hidden rounded-xl">
                       <AutoplayVideo src={project.video!} className="h-full w-full" />
                     </div>
                   </div>

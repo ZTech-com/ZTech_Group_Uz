@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SITE } from "@/lib/constants";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -14,9 +15,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background:
-            "radial-gradient(ellipse 80% 80% at 50% -10%, rgba(0,113,227,0.35), transparent), #050507",
-          color: "#f5f5f7",
+          background: "#080808",
+          color: "#F5F5F5",
           fontFamily: "sans-serif",
         }}
       >
@@ -29,12 +29,12 @@ export default function OpengraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "#0071e3",
+              background: "#D4AF37",
             }}
           >
-            <div style={{ width: 14, height: 14, background: "#ffffff", borderRadius: 3 }} />
+            <div style={{ width: 14, height: 14, background: "#080808", borderRadius: 3 }} />
           </div>
-          <span style={{ fontSize: 28, fontWeight: 600 }}>ZTech Group</span>
+          <span style={{ fontSize: 28, fontWeight: 600 }}>{SITE.name}</span>
         </div>
 
         <div style={{ display: "flex", marginTop: 48, maxWidth: 920 }}>
@@ -44,9 +44,9 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", marginTop: 28, maxWidth: 760 }}>
-          <span style={{ fontSize: 26, color: "#a1a1a6", lineHeight: 1.5 }}>
+          <span style={{ fontSize: 26, color: "#A3A3A3", lineHeight: 1.5 }}>
             Modern websites, Telegram bots, CRM systems and custom software,
-            built by ZTech Group.
+            built by {SITE.name}.
           </span>
         </div>
       </div>

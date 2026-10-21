@@ -25,20 +25,20 @@ function ContactCard({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="glow-border card-surface group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
+      className="glow-border card-surface group flex items-center justify-between gap-4 rounded-xl p-5 transition-all duration-300 hover:border-[var(--border-strong)]"
     >
       <div className="flex items-center gap-3.5">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-semibold text-[var(--accent)]">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[var(--border-strong)] text-base font-bold text-[var(--accent-bright)]">
           {name.charAt(0)}
         </span>
         <div>
-          <p className="text-sm font-medium text-[var(--text-primary)]">{name}</p>
-          <p className="text-xs text-[var(--text-tertiary)]">
+          <p className="text-[15px] font-semibold text-[var(--text-primary)]">{name}</p>
+          <p className="text-[13px] text-[var(--text-tertiary)]">
             {role}, @{username}
           </p>
         </div>
       </div>
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-medium text-[var(--text-primary)] transition-colors duration-300 group-hover:border-[var(--accent-bright)]/50 group-hover:bg-[var(--accent-soft)]">
+      <span className="inline-flex items-center gap-1.5 rounded-md border border-[var(--border-strong)] px-3 py-2 text-xs font-medium text-[var(--text-primary)] transition-colors duration-300 group-hover:bg-[var(--accent-soft)]">
         {messageLabel}
         <Send size={12} />
       </span>
@@ -50,11 +50,7 @@ export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="relative py-28 sm:py-36">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="animate-pulse-glow absolute bottom-0 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[var(--accent)] opacity-[0.1] blur-[130px]" />
-      </div>
-
+    <section id="contact" className="relative border-t border-[var(--border-subtle)] py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading
           title={t.contact.title}

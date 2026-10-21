@@ -53,12 +53,12 @@ const en = {
     startProject: "Start a Project",
   },
   hero: {
-    badge: "ZTech Group · Digital Products & Software",
+    badge: "ITop · Digital Products & Software",
     titlePrefix: "We Build ",
     titleHighlight: "Digital Products",
     titleSuffix: " That Move Businesses Forward.",
     subtitle:
-      "Websites, platforms, Telegram bots, CRM systems and custom software — designed, developed and delivered by ZTech Group.",
+      "Websites, platforms, Telegram bots, CRM systems and custom software — designed, developed and delivered by ITop.",
     ctaPrimary: "Start a Project",
     ctaSecondary: "Explore Our Work",
     lab: {
@@ -70,12 +70,12 @@ const en = {
         bot: "Telegram Bot",
       },
       url: {
-        website: "ztech-business.vercel.app",
+        website: "ITop-business.vercel.app",
         ecommerce: "shop.noutbuk-olami.uz",
-        crm: "crm.ztech.uz",
+        crm: "crm.ITop.uz",
       },
       website: {
-        eyebrow: "ZTech Group",
+        eyebrow: "ITop",
         headline: "Grow with confidence.",
         body: "A premium business website built to earn trust.",
         cta: "Get Started",
@@ -97,7 +97,7 @@ const en = {
         activity: "Weekly activity",
       },
       bot: {
-        name: "ZTech Assistant",
+        name: "ITop Assistant",
         status: "online",
         botMessage: "Hi! Tell me about your project and I'll get the team looped in.",
         userMessage: "I need a Telegram bot for my restaurant.",
@@ -168,7 +168,7 @@ const en = {
     eyebrow: "What We Build",
     title: "Products Shaped Around Real Businesses.",
     description:
-      "A glimpse of the kinds of systems ZTech Group designs and builds — each one tailored to how the business actually operates.",
+      "A glimpse of the kinds of systems ITop designs and builds — each one tailored to how the business actually operates.",
     items: {
       restaurant: { title: "Restaurant Ordering", category: "Food & Service" },
       marketplace: { title: "Laptop Marketplace", category: "E-Commerce" },
@@ -184,13 +184,13 @@ const en = {
     eyebrow: "Projects",
     title: "Built for Real Businesses.",
     description:
-      "A selection of products ZTech Group has designed, built and delivered for real clients.",
+      "A selection of products ITop has designed, built and delivered for real clients.",
     viewProject: "View Project",
     statusLive: "Live",
     statusConcept: "Concept / Demo",
     watchExplainer: "Watch How It Works",
     enquiryMessage: (name: string) =>
-      `Hi ZTech Group, I'd like to learn more about the "${name}" project.`,
+      `Hi ITop, I'd like to learn more about the "${name}" project.`,
     items: PROJECT_ITEMS,
   },
   process: {
@@ -207,7 +207,7 @@ const en = {
       launch: { title: "Launch", description: "Deploy and deliver the final product." },
     },
   },
-  whyZtech: {
+  whyITop: {
     titlePrefix: "Technology Should ",
     titleHighlight: "Feel Simple.",
     subtitle:
@@ -272,12 +272,12 @@ const en = {
       success: {
         title: "Your request is ready.",
         subtitle:
-          "We've prepared your project request. Continue in Telegram to send it directly to ZTech Group.",
+          "We've prepared your project request. Continue in Telegram to send it directly to ITop.",
         continueTelegram: "Continue in Telegram",
         sendAnother: "Send another request",
       },
       messageLabels: {
-        header: "ZTech Group Project Request",
+        header: "ITop Project Request",
         name: "Name",
         telegram: "Telegram",
         phone: "Phone",
@@ -290,7 +290,7 @@ const en = {
     tagline: "Digital products. Software. Automation.",
     navigate: "Navigate",
     telegramLabel: "Telegram",
-    rights: "© 2026 ZTech Group. All rights reserved.",
+    rights: "© 2026 ITop. All rights reserved.",
     precision: "Built with precision.",
   },
 };

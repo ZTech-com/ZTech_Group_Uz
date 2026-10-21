@@ -42,7 +42,7 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.97 }}
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-white/95 p-1.5 shadow-2xl backdrop-blur-xl"
+            className="absolute right-0 top-full z-50 mt-2 w-40 overflow-hidden rounded-xl border border-[var(--border-subtle)] bg-[#111111]/95 p-1.5 shadow-2xl backdrop-blur-xl"
           >
             {locales.map((l) => (
               <li key={l.code}>
@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
                     setLocale(l.code);
                     setOpen(false);
                   }}
-                  className="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm text-[var(--text-secondary)] transition-colors duration-150 hover:bg-[var(--bg-elevated)] hover:text-[var(--text-primary)]"
+                  className="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-sm text-[var(--text-secondary)] transition-colors duration-150 hover:bg-[var(--bg-elevated)] hover:text-[var(--accent-bright)]"
                 >
                   {l.label}
                   {l.code === locale && <Check size={14} className="text-[var(--accent-bright)]" />}

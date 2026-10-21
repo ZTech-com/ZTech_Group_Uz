@@ -1,46 +1,31 @@
 @import "tailwindcss";
 
-/* ---------------------------------------------------------------------- */
-/* Design tokens — Apple-inspired: pure white, near-black, classic blue.  */
-/* Sections can opt into the dark palette with the `.section-dark` class. */
-/* ---------------------------------------------------------------------- */
-
 :root {
-  --bg: #ffffff;
-  --bg-elevated: #f5f5f7;
-  --card-bg: #ffffff;
-  --card-shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 16px 40px -20px rgba(0, 0, 0, 0.14);
-  --card-shadow-hover: 0 1px 1px rgba(0, 0, 0, 0.05), 0 24px 56px -20px rgba(0, 0, 0, 0.2);
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.14);
-  --text-primary: #1d1d1f;
-  --text-secondary: #5c5c63;
-  --text-tertiary: #86868b;
-  --accent: #0071e3;
-  --accent-bright: #2997ff;
-  --accent-deep: #0050b3;
-  --accent-soft: rgba(0, 113, 227, 0.1);
-  --focus-ring: #0071e3;
+  --bg: #080808;
+  --bg-elevated: #111111;
+  --card-bg: #151515;
+  --card-shadow: 0 18px 48px -28px rgba(0, 0, 0, 0.9);
+  --card-shadow-hover: 0 24px 58px -28px rgba(0, 0, 0, 0.95);
+  --border-subtle: rgba(212, 175, 55, 0.14);
+  --border-strong: rgba(212, 175, 55, 0.3);
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #8a857a;
+  --accent: #d4af37;
+  --accent-bright: #f5d76e;
+  --accent-deep: #8c6a16;
+  --accent-soft: rgba(212, 175, 55, 0.12);
+  --focus-ring: #f5d76e;
 }
 
 .section-dark {
-  --bg: #050507;
-  --bg-elevated: #0d0d10;
-  --card-bg: #18181b;
-  --card-shadow: 0 1px 1px rgba(0, 0, 0, 0.4), 0 20px 50px -20px rgba(0, 0, 0, 0.75);
-  --card-shadow-hover: 0 1px 1px rgba(0, 0, 0, 0.5), 0 28px 64px -18px rgba(0, 0, 0, 0.85);
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --text-primary: #f5f5f7;
-  --text-secondary: #a1a1a6;
-  --text-tertiary: #6e6e73;
-  --accent: #2997ff;
-  --accent-bright: #5aafff;
-  --accent-deep: #0071e3;
-  --accent-soft: rgba(41, 151, 255, 0.16);
-  --focus-ring: #5aafff;
+  --bg: #111111;
+  --bg-elevated: #151515;
+  --card-bg: #191919;
 
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 56rem 42rem at 86% 10%, rgba(212, 175, 55, 0.055), transparent 72%),
+    var(--bg);
   color: var(--text-primary);
 }
 
@@ -65,12 +50,18 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 44rem 32rem at 10% 4%, rgba(212, 175, 55, 0.085), transparent 72%),
+    radial-gradient(ellipse 36rem 30rem at 90% 46%, rgba(212, 175, 55, 0.04), transparent 74%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
   overflow-x: hidden;
@@ -87,17 +78,19 @@ body {
   border-radius: 4px;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border-strong);
   border-radius: 8px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-tertiary);
 }
@@ -108,19 +101,41 @@ body {
 
 .container-page {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1.25rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .container-page {
     padding-inline: 2rem;
   }
 }
 
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 3rem;
+  }
+}
+
 .text-accent {
-  color: var(--accent);
+  color: var(--accent-bright);
+}
+
+.brand-wordmark {
+  background-image: linear-gradient(110deg, #d4af37 5%, #f5d76e 48%, #b88a20 92%);
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.button-gold {
+  background-image: linear-gradient(115deg, #a47c1a 0%, #d4af37 46%, #f5d76e 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.button-gold:hover {
+  background-image: linear-gradient(115deg, #bb9227 0%, #e3c24c 46%, #f9e38b 100%);
 }
 
 .card-surface {
@@ -147,9 +162,9 @@ body {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, var(--accent-soft), transparent 60%);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 65%);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -157,47 +172,31 @@ body {
   opacity: 1;
 }
 
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(0.3deg); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.9; }
-}
-
-@keyframes drift {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(16px, -20px); }
-  100% { transform: translate(0, 0); }
-}
-
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 4.5s ease-in-out infinite;
-}
-
-.animate-drift {
-  animation: drift 13s ease-in-out infinite;
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-marquee {
@@ -208,10 +207,17 @@ body {
   animation: fade-in 0.4s ease-out;
 }
 
+@media (max-width: 639px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {

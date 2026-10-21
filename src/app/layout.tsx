@@ -17,17 +17,17 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "ZTech Group builds modern websites, Telegram bots, CRM systems, business platforms and custom software for modern businesses.";
+  "ITop builds modern websites, Telegram bots, CRM systems, business platforms and custom software for modern businesses.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "ZTech Group — Digital Products, Websites & Software",
-    template: "%s · ZTech Group",
+    default: `${SITE.name} — Digital Products, Websites & Software`,
+    template: `%s · ${SITE.name}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "ZTech Group",
+    SITE.name,
     "web development",
     "Telegram bots",
     "CRM systems",
@@ -38,18 +38,18 @@ export const metadata: Metadata = {
     "custom software",
     "AI solutions",
   ],
-  authors: [{ name: "ZTech Group" }],
-  creator: "ZTech Group",
+  authors: [{ name: SITE.name }],
+  creator: SITE.name,
   openGraph: {
     type: "website",
     url: SITE.url,
-    title: "ZTech Group — Digital Products, Websites & Software",
+    title: `${SITE.name} — Digital Products, Websites & Software`,
     description: SITE_DESCRIPTION,
-    siteName: "ZTech Group",
+    siteName: SITE.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZTech Group — Digital Products, Websites & Software",
+    title: `${SITE.name} — Digital Products, Websites & Software`,
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#080808",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

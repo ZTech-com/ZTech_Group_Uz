@@ -1,6 +1,6 @@
-# ZTech Group
+# ITop
 
-Marketing website for **ZTech Group** — a technology studio building websites, Telegram bots, CRM systems, business platforms and custom software.
+Marketing website for **ITop** — a technology studio building websites, Telegram bots, CRM systems, business platforms and custom software.
 
 Frontend-only. No backend, database or auth. Contact flows work entirely through Telegram deep links (`https://t.me/<username>?text=...`).
 

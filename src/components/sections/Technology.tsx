@@ -61,7 +61,7 @@ function OrbitRing({
                 onBlur={() => onHover(null)}
                 className={`whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ${
                   active === tech
-                    ? "scale-110 border-[var(--accent-bright)]/60 bg-[var(--accent-soft)] text-[var(--text-primary)]"
+                    ? "scale-110 border-[var(--border-strong)] bg-[var(--accent-soft)] text-[var(--accent-bright)]"
                     : "border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
                 }`}
               >
@@ -80,7 +80,7 @@ export default function Technology() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section className="section-dark relative overflow-hidden py-28 sm:py-36">
+    <section className="section-dark relative overflow-hidden py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading
           title={t.technology.title}
@@ -90,7 +90,7 @@ export default function Technology() {
 
         {/* Desktop orbit visualization */}
         <Reveal delay={0.1}>
-          <div className="relative mx-auto mt-16 hidden h-[420px] w-full max-w-xl md:block">
+          <div className="relative mx-auto mt-14 hidden h-[420px] w-full max-w-xl md:block">
             <div className="absolute inset-0 rounded-full border border-[var(--border-subtle)]" />
             <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--border-subtle)]" />
 
@@ -110,8 +110,8 @@ export default function Technology() {
               onHover={setActive}
             />
 
-            <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--accent-soft)] text-xs font-semibold text-[var(--text-primary)] shadow-[0_0_40px_-5px_rgba(41,151,255,0.45)]">
-              ZTech
+            <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg-elevated)] text-xs font-semibold text-[var(--accent-bright)]">
+              ITop
             </div>
           </div>
         </Reveal>
